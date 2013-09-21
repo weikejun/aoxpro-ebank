@@ -8,17 +8,13 @@ $gConfig['db'] = array(
 		);
 
 $gConfig['game'] = array(
-		'bonus_rate' => 500,
-		'bonus_quota' => 3,
-		'total_time' => 80,
-		'total_time_score' => 2500,
-		'max_level' => 4,
-		'add_time' => 8,
+		'total_time' => 6,
+		'max_level' => 2,
 		);
 
 $gConfig['share'] = array(
-		'pic_url' => 'http://disney.aoxpro.com/images/avatar/%d.png',
-		'content' => '没有什么可以阻挡，我享受消除方块儿的快乐时光，白雪公主喜羊羊，我在中钞国鼎金章连连看里已经过关斩将，现在我已经是 "%s"，每天送出一块儿Au999的金章，我还需打败 %s 的玩家就有机会拿到了！',
-		'content_error' => '没有什么可以阻挡，我享受消除方块儿的快乐时光，白雪公主喜羊羊，我在中钞国鼎金章连连看里已经过关斩将，每天送出一块儿Au999的金章，多多参与就有机会拿到了！',
-		'join_tips' => '猛击参加: http://t.cn/zHmBKzX'
+		'pic_url' => 'http://disney.aoxpro.com/images/cover.jpg',
+		'content' => '我参加了#e滴水v环保#有奖活动，了解到，每成功使用一次电子银行交易说明将节约大约2克的纸张，意味着保护了10滴天然水免受工业排放污染的危害，我是环保行动队，我积极使用电子银行，点滴环保从我做起！@中国电子银行网',
+		'content_error' => '我参加了#e滴水v环保#有奖活动，了解到，每成功使用一次电子银行交易说明将节约大约2克的纸张，意味着保护了10滴天然水免受工业排放污染的危害，我是环保行动队，我积极使用电子银行，点滴环保从我做起！@中国电子银行网',
+		'join_tips' => ''
 		);

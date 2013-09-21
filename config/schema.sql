@@ -3,44 +3,28 @@ CREATE DATABASE `aoxpro_ebank`;
 
 USE `aoxpro_ebank`;
 
--- CREATE TABLE `user` (
---   `id` bigint NOT NULL AUTO_INCREMENT COMMENT '用户自增ID',
---   `weibo_id` bigint NOT NULL DEFAULT '0' COMMENT '用户微博ID',
---   `weibo_name` varchar(64) NOT NULL DEFAULT '微博用户' COMMENT '微博用户名',
---   `high_score` bigint NOT NULL DEFAULT '0' COMMENT '用户总得分',
---   `login_time` bigint NOT NULL DEFAULT '0' COMMENT '用户上次参与游戏时间',
---   `create_time` bigint NOT NULL DEFAULT '0' COMMENT '用户第一次参与游戏时间',
---   PRIMARY KEY (`id`),
---   UNIQUE KEY `weibo_id_idx` (`weibo_id`),
---   KEY `total_high_idx` (`high_score`),
---   KEY `create_time_idx` (`create_time`)
--- ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='用户信息表'; 
--- 
--- CREATE TABLE `user_status` (
---   `id` bigint NOT NULL AUTO_INCREMENT COMMENT '流水ID',
---   `weibo_id` bigint NOT NULL DEFAULT '0' COMMENT '用户微博ID',
---   `total_score` bigint NOT NULL DEFAULT '0' COMMENT '用户总得分',
---   `status` smallint NOT NULL DEFAULT '0' COMMENT '用户状态， 0 空闲;1 游戏中',
---   `level` smallint NOT NULL DEFAULT '0' COMMENT '用户当前难度，0-4',
---   `level_time` bigint NOT NULL DEFAULT '0' COMMENT '当时难度进入时间',
---   PRIMARY KEY (`id`),
---   UNIQUE KEY `weibo_id_idx` (`weibo_id`)
--- ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='用户状态表'; 
--- 
--- CREATE TABLE `bonus_quota` (
---   `id` smallint NOT NULL AUTO_INCREMENT COMMENT '自增ID',
---   `quota` bigint NOT NULL DEFAULT '5' COMMENT '爆奖日配额',
---   PRIMARY KEY (`id`)
--- ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='爆奖配额表';
--- 
--- CREATE TABLE `bonus_user` (
---   `id` smallint NOT NULL AUTO_INCREMENT COMMENT '自增ID',
---   `weibo_id` bigint NOT NULL DEFAULT '0' COMMENT '用户微博ID',
---   `bonus_time` bigint NOT NULL DEFAULT '0' COMMENT '用户爆奖时间',
---   PRIMARY KEY (`id`),
---   KEY `weibo_id_idx` (`weibo_id`)
--- ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='爆奖用户表';
--- 
+CREATE TABLE `user` (
+  `id` bigint NOT NULL AUTO_INCREMENT COMMENT '用户自增ID',
+  `weibo_id` varchar(64) NOT NULL COMMENT '微博用户ID, s_%s 新浪; t_%s 腾讯',
+  `weibo_name` varchar(64) NOT NULL DEFAULT '微博用户' COMMENT '微博用户名',
+  `login_time` bigint NOT NULL DEFAULT '0' COMMENT '用户上次参与游戏时间',
+  `create_time` bigint NOT NULL DEFAULT '0' COMMENT '用户第一次参与游戏时间',
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `weibo_id_idx` (`weibo_id`),
+  KEY `create_time_idx` (`create_time`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='用户信息表'; 
+
+CREATE TABLE `user_status` (
+  `id` bigint NOT NULL AUTO_INCREMENT COMMENT '流水ID',
+  `weibo_id` varchar(64) NOT NULL COMMENT '微博用户ID, s_%s 新浪; t_%s 腾讯',
+  `total_score` bigint NOT NULL DEFAULT '0' COMMENT '用户总得分',
+  `status` smallint NOT NULL DEFAULT '0' COMMENT '用户状态， 0 空闲;1 游戏中',
+  `level` smallint NOT NULL DEFAULT '0' COMMENT '用户当前难度，0-2',
+  `level_time` bigint NOT NULL DEFAULT '0' COMMENT '当时难度进入时间',
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `weibo_id_idx` (`weibo_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='用户状态表'; 
+
 -- CREATE TABLE `action_log` (
 --   `id` bigint NOT NULL AUTO_INCREMENT COMMENT '流水ID',
 --   `weibo_id` bigint NOT NULL DEFAULT '0' COMMENT '用户ID',

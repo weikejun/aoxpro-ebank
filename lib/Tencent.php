@@ -149,7 +149,7 @@ class Tencent
             $params['appfrom'] = 'php-sdk2.0beta';
             $params['seqid'] = time();
             $params['serverip'] = $_SERVER['SERVER_ADDR'];
-            
+
             $url = self::$apiUrlHttps.trim($command, '/');
         } elseif (isset($_SESSION['t_openid']) && isset($_SESSION['t_openkey'])) {//openid & openkey方式
             $params['appid'] = OAuth::$client_id;
@@ -159,7 +159,7 @@ class Tencent
             $params['reqtime'] = time();
             $params['wbversion'] = '1';
             $params['pf'] = 'php-sdk2.0beta';
-            
+
             $url = self::$apiUrlHttp.trim($command, '/');
             //生成签名
             $urls = @parse_url($url);
