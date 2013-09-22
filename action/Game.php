@@ -243,8 +243,10 @@ class My_Action_Game extends My_Action_Abstract {
 	}
 
 	public function gameAction() {
-		echo 'flash game';
-		exit;
+	}
+
+	public function topicAction() {
+		
 	}
 
 	public function pvAction() {
