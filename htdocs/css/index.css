@@ -28,7 +28,7 @@ img{border:0;}
 .main{width:100%;}
 .main .center{width:1100px;margin:0 auto;position:relative;}
 .main .center .num{position:absolute;width:233px;height:43px;background:url(../img/10.png) no-repeat;left:40%;top:15px;color:#fff;font-size:30px;font-weight:bold;text-indent:103px;letter-spacing:3px;z-index:90;}
-.main .center .block_1{float:left;width:280px;height:312px;background:url(../img/07.jpg) no-repeat;font-size:14px;padding:60px 10px 0 70px;line-height:160%;}
+.main .center .block_1{float:left;width:280px;height:312px;background:url(../img/07.jpg) no-repeat;font-size:12px;padding:60px 10px 0 70px;line-height:160%;}
 .main .center .block_1 em{color:#f00;font-style:normal;}
 .main .center .block_2{float:left;width:412px;height:372px;background:url(../img/08.jpg) no-repeat;position:relative;}
 .main .center .block_2 .left_a{position:absolute;top:190px;left:20px;display:inline-block;width:40px;height:55px;background:url(../img/13.png) no-repeat;}
@@ -37,7 +37,7 @@ img{border:0;}
 .main .center .block_2 .right_a:hover{right:-8px;}
 .main .center .block_2 .jp{width:335px;height:205px;display:inline-block;margin:125px 0 0 50px;}
 .main .center .block_2 .jp a{display:inline-block;margin:0 2px;}
-.main .center .block_3{float:left;width:298px;height:312px;background:url(../img/09.jpg) no-repeat;font-size:14px;padding:60px 10px 0 20px;line-height:180%;}
+.main .center .block_3{float:left;width:298px;height:312px;background:url(../img/09.jpg) no-repeat;font-size:12px;padding:60px 10px 0 20px;line-height:180%;}
 .main .center .block_3 .span_1{width:110px;display:inline-block;}
 .main .center .block_3 .span_2{display:inline-block;width:170px;}
 .main .center .block_3 .span_2 a{color:#f60;}
@@ -49,3 +49,13 @@ img{border:0;}
 .links .center a:hover{ box-shadow:2px 2px 0px #ccc;}
 
 .footer{width:100%;height:54px;background:#0e93d8;font-size:16px;color:#fff;line-height:54px;text-align:center;}
+.hide{display: none;}
+
+#slider-code { height: 290px; overflow:hidden;}
+#slider-code .viewport { float: left; width: 330px; height: 210px; overflow: hidden; position: relative; cursor: pointer; }
+#slider-code .buttons { display: block; float: left; }
+#slider-code .next {  }
+#slider-code .disable { visibility: hidden; }
+#slider-code .overview { list-style: none; position: absolute; padding: 0; margin: 0; left: 0; top: 0; }
+#slider-code .overview li{ float: left; margin: 0 20px 0 0; padding: 1px; height: 210px; border: none; width: 330px; }
+#slider-code .overview li div{ font-family: simhei; text-align: center; font-weight: bold; }
