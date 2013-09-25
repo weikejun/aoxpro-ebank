@@ -245,10 +245,6 @@ class My_Action_Game extends My_Action_Abstract {
 	public function gameAction() {
 	}
 
-	public function topicAction() {
-		
-	}
-
 	public function pvAction() {
 		$ret = null;
 		$pv = 0;
@@ -309,24 +305,24 @@ class My_Action_Game extends My_Action_Abstract {
 	}
 
 	protected function _postAction() {
-//		$sParams = $this->getSession('oauth2');
-//		$actionBody = sprintf(
-//				'ip=%s|sid=%s|msg=%s|uri=%s',
-//				My_Service_Game::getIP(),
-//				session_id(),
-//				is_null($this->_exception) ? 'done' : $this->_exception->getMessage(),
-//				$this->getServer('REQUEST_URI')
-//				);
-//		My_Model_ActionLog::logAction(
-//				empty($sParams['user_id']) ? 0 : $sParams['user_id'],
-//				$this->getActionName(),
-//				$actionBody,
-//				$this->getActionTime()
-//				);
+		$sParams = $this->getSession('oauth2');
+		$actionBody = sprintf(
+				'ip=%s|sid=%s|msg=%s|uri=%s',
+				My_Service_Game::getIP(),
+				session_id(),
+				is_null($this->_exception) ? 'done' : $this->_exception->getMessage(),
+				$this->getServer('REQUEST_URI')
+				);
+		My_Model_ActionLog::logAction(
+				empty($sParams['user_id']) ? 0 : $sParams['user_id'],
+				$this->getActionName(),
+				$actionBody,
+				$this->getActionTime()
+				);
 	}
 
 	protected function _preAction() {
-		$unauthActions = array('callback', 'connect', 'auth', 'unauth', 'pv');
+		$unauthActions = array('callback', 'connect', 'auth', 'unauth', 'pv', 'topic');
 		if(!in_array($this->getActionName(), $unauthActions)) {
 			$this->_verifyAuth();
 			if (!$this->_isAuth) {

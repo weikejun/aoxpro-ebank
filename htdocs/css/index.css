@@ -51,11 +51,11 @@ img{border:0;}
 .footer{width:100%;height:54px;background:#0e93d8;font-size:16px;color:#fff;line-height:54px;text-align:center;}
 .hide{display: none;}
 
-#slider-code { height: 290px; overflow:hidden;}
+#slider-code { height: 350px; overflow:hidden;}
 #slider-code .viewport { float: left; width: 330px; height: 210px; overflow: hidden; position: relative; cursor: pointer; }
 #slider-code .buttons { display: block; float: left; }
 #slider-code .next {  }
 #slider-code .disable { visibility: hidden; }
 #slider-code .overview { list-style: none; position: absolute; padding: 0; margin: 0; left: 0; top: 0; }
 #slider-code .overview li{ float: left; margin: 0 20px 0 0; padding: 1px; height: 210px; border: none; width: 330px; }
-#slider-code .overview li div{ font-family: simhei; text-align: center; font-weight: bold; }
+#slider-code .overview li div{ margin-left: auto;margin-right:auto;font-family: simhei; text-align: center; font-weight: bold; }

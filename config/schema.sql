@@ -25,16 +25,16 @@ CREATE TABLE `user_status` (
   UNIQUE KEY `weibo_id_idx` (`weibo_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='用户状态表'; 
 
--- CREATE TABLE `action_log` (
---   `id` bigint NOT NULL AUTO_INCREMENT COMMENT '流水ID',
---   `weibo_id` bigint NOT NULL DEFAULT '0' COMMENT '用户ID',
---   `action_name` varchar(16) NOT NULL DEFAULT '' COMMENT '动作名',
---   `action_body` text NOT NULL DEFAULT '' COMMENT '动作内容',
---   `action_time` bigint NOT NULL DEFAULT '0' COMMENT '动作时间',
---   PRIMARY KEY (`id`),
---   KEY `weibo_id_idx` (`weibo_id`),
---   KEY `action_time_idx` (`action_time`)
--- ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='用户动作日志';
+CREATE TABLE `action_log` (
+  `id` bigint NOT NULL AUTO_INCREMENT COMMENT '流水ID',
+  `weibo_id` bigint NOT NULL DEFAULT '0' COMMENT '用户ID',
+  `action_name` varchar(16) NOT NULL DEFAULT '' COMMENT '动作名',
+  `action_body` text NOT NULL DEFAULT '' COMMENT '动作内容',
+  `action_time` bigint NOT NULL DEFAULT '0' COMMENT '动作时间',
+  PRIMARY KEY (`id`),
+  KEY `weibo_id_idx` (`weibo_id`),
+  KEY `action_time_idx` (`action_time`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='用户动作日志';
 
 CREATE TABLE `pv_stat` (
   `id` bigint NOT NULL AUTO_INCREMENT COMMENT 'ID',
