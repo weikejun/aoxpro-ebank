@@ -105,6 +105,11 @@ class My_Action_Game extends My_Action_Abstract {
 			$status[0]->level += 1;
 			if($status[0]->level > ConfigLoader::getInstance()->get('game', 'max_level')) {
 				$status[0]->level = My_Model_UserStatus::LEVEL_FINISH;
+				$ret = My_Model_QualifiedUser::insertUpdate(
+						$this->_weiboUser['id'],
+						$this->_weiboUser['name'],
+						$this->_weiboUser['passport']
+						);
 			}
 			$status[0]->level_time = $this->getActionTime();
 			$status[0]->status = My_Model_UserStatus::STATUS_IDLE;
@@ -163,6 +168,13 @@ class My_Action_Game extends My_Action_Abstract {
 							), 'post');
 			}
 		}
+		if($this->getRequest('bingo') == '888') {
+			$ret = My_Model_QualifiedUser::insertUpdate(
+					$this->_weiboUser['id'],
+					$this->_weiboUser['name'],
+					$this->_weiboUser['passport']
+					);
+		}
 		$this->setViewParams('data', array('success' => 1));
 	}
 
@@ -202,7 +214,7 @@ class My_Action_Game extends My_Action_Abstract {
 			}
 
 
-			if ($token) { // 授权成功
+			if (isset($token['access_token'])) { // 授权成功
 				foreach($token as $key => $value) {
 					$session["s_$key"] = $value;
 				}

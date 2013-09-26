@@ -23,7 +23,7 @@ img{border:0;}
 .main_banner .right_1 a{display:block;}
 
 #banner_1{height:538px;background:url(../img/15.jpg) no-repeat;position:relative;}
-#banner_2{height:538px;background:url(../img/16.jpg) no-repeat;position:relative;display:none;}
+#banner_2{height:538px;background:url(../img/16.jpg) no-repeat;position:relative;display:none;cursor:pointer;}
 
 .main{width:100%;}
 .main .center{width:1100px;margin:0 auto;position:relative;}

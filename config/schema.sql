@@ -25,6 +25,18 @@ CREATE TABLE `user_status` (
   UNIQUE KEY `weibo_id_idx` (`weibo_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='用户状态表'; 
 
+CREATE TABLE `qualified_user` (
+  `id` bigint NOT NULL AUTO_INCREMENT COMMENT '流水ID',
+  `weibo_id` varchar(64) NOT NULL COMMENT '微博用户ID, s_%s 新浪; t_%s 腾讯',
+  `weibo_name` varchar(64) NOT NULL DEFAULT '微博用户' COMMENT '微博用户名',
+  `weibo_passport` varchar(64) NOT NULL DEFAULT '微博用户' COMMENT '微博账户名',
+  `done_times` bigint NOT NULL DEFAULT '1' COMMENT '当天完成游戏次数', 
+  `date_time` bigint NOT NULL DEFAULT '0' COMMENT '用户参与游戏日期',
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `uni_user_idx` (`weibo_id`, `date_time`),
+  KEY `date_time_idx` (`date_time`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='抽奖资格表'; 
+
 CREATE TABLE `action_log` (
   `id` bigint NOT NULL AUTO_INCREMENT COMMENT '流水ID',
   `weibo_id` bigint NOT NULL DEFAULT '0' COMMENT '用户ID',

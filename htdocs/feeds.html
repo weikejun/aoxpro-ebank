@@ -10,6 +10,7 @@
 <script src="http://mat1.gtimg.com/app/openjs/openjs.js#autoboot=no&debug=no"></script>
 <script>
 var $id = function(id) {return document.getElementById(id);}
+var $createE = function(name) {return document.createElement(name);}
 </script>
 </head>
 
@@ -37,33 +38,12 @@ var $id = function(id) {return document.getElementById(id);}
                 <div class="weibo_list">
                 	<img src="img/33.jpg" alt=""/ ><br />
 			<div id="s_wb_cont" style="display: none;">
-                    <div class="weibo_scroll">
-                    <div class="weibo_show">
-                    	<div class="face"><img src="http://static.cnbetacdn.com/headline/2013/0922/1379806213.gif" alt="" /></div>
-                    	<div class="weibo_content"><b>jim</b>: 我刚刚通过#e滴水，v环保#活动，测算出了自己近一个月通过网银为环保做出的贡献，还在地图上种下了以自己命名的环保之树。你也来吧，为公益贡献自己的微力量！每天无线鼠标３个、充值卡５张，另有ipad周周送！@中国电子银行网 http://hbr.cebnet.com.cn/</div>
-			<div class="weibo_pic"><img src="http://app.qpic.cn/mblogpic/a1f3a0457154cd03069e/120"></div>
-			<div class="weibo_time">23:57</div>
-                        <div class="clear"></div>
-                    </div>
-                    <div class="weibo_show">
-                    	<div class="face"><img src="http://static.cnbetacdn.com/headline/2013/0922/1379806213.gif" alt="" /></div>
-                    	<div class="weibo_content"><b>jim</b>: 我刚刚通过#e滴水，v环保#活动，测算出了自己近一个月通过网银为环保做出的贡献，还在地图上种下了以自己命名的环保之树。你也来吧，为公益贡献自己的微力量！每天无线鼠标３个、充值卡５张，另有ipad周周送！@中国电子银行网 http://hbr.cebnet.com.cn/</div>
-			<div class="weibo_pic"><img src="http://app.qpic.cn/mblogpic/a1f3a0457154cd03069e/120"></div>
-			<div class="weibo_time">23:57</div>
-                        <div class="clear"></div>
-                    </div>
-		    <div class="weibo_show">
-                    	<div class="face"><img src="http://static.cnbetacdn.com/headline/2013/0922/1379806213.gif" alt="" /></div>
-                    	<div class="weibo_content"><b>jim</b>: 我刚刚通过#e滴水，v环保#活动，测算出了自己近一个月通过网银为环保做出的贡献，还在地图上种下了以自己命名的环保之树。你也来吧，为公益贡献自己的微力量！每天无线鼠标３个、充值卡５张，另有ipad周周送！@中国电子银行网 http://hbr.cebnet.com.cn/</div>
-			<div class="weibo_pic"><img src="http://app.qpic.cn/mblogpic/a1f3a0457154cd03069e/120"></div>
-			<div class="weibo_time">23:57</div>
-                        <div class="clear"></div>
-                    </div>
-                </div>
-                
-                <div class="page">
-					<a href="#">首页</a><a href="#">上一页</a><a href="#" class="num">1</a><a href="#" class="num">2</a><a href="#" class="num">3</a><a href="#" class="num">4</a><a href="#" class="num">5</a><a href="#">下一页</a><a href="#">尾页</a>
-				</div>
+			<div style="background: #f5f5f5;height:33px;padding:0 10px;"><img src="/img/weibo_logo.png"></img></div>
+			<div style="height:0;inline-height:0;border-bottom:1px solid #ccc;width:100%;"></div>
+                	<div id="s_wb_cont_scroll" class="weibo_scroll"><span id="weibo_loading">加载中</span></div>
+			<!--div class="page">
+			<a href="#">首页</a><a href="#">上一页</a><a href="#" class="num">1</a><a href="#" class="num">2</a><a href="#" class="num">3</a><a href="#" class="num">4</a><a href="#" class="num">5</a><a href="#">下一页</a><a href="#">尾页</a>
+			</div-->
 			</div>
 			<iframe onload="$id('s_wb_tab').onclick();" id="t_wb_cont" frameborder="0" scrolling="no" src="http://wall.v.t.qq.com/index.php?c=wall&a=index&t=e%E6%BB%B4%E6%B0%B4v%E7%8E%AF%E4%BF%9D&ak=801418700&w=323&h=468&n=&url=http%3A%2F%2Fhbr2013.cebnet.com.cn%2F&s=4&o=35" width="323" height="468"></iframe>
                 </div>
@@ -71,7 +51,13 @@ var $id = function(id) {return document.getElementById(id);}
         	<div class="right">
 				<div class="man"></div>
                 <img src="img/34.jpg" alt=""/ ><br />
-                <textarea disabled=true id="default_feed" class="textarea" style=" ">我参加了#e滴水v环保#有奖活动，了解到，每成功使用一次电子银行交易说明将节约大约2克的纸张，意味着保护了10滴天然水免受工业排放污染的危害，我是环保宣传队，我积极使用电子银行，点滴环保从我做起！@中国电子银行网</textarea><br />
+                <textarea disabled=true id="default_feed" class="textarea" style=" ">
+		</textarea><br />
+		<script>
+			var txt = ["我参加了#e滴水v环保#有奖活动，了解到，每成功使用一次电子银行交易说明将节约大约2克的纸张，意味着保护了10滴天然水免受工业排放污染的危害，我是环保宣传队，我积极使用电子银行，点滴环保从我做起！@中国电子银行网", "我参加了#e滴水v环保#有奖活动，了解到，环保就在身边，使用电子银行交易，环保如此简单，既方便自己又能为环保治水做出贡献，我是环保宣传队，多多使用电子银行，体验环保生活方式！活动奖品多多，大奖可是iphone5S哟！每天都奖充值卡！ @中国电子银行网", "10.18电子银行环保日就要到了，参加#e滴水v环保#有奖活动，大奖iphone5S，奖品多多，每天有的拿，还等什么，猛戳→ → http://hbr2013.cebnet.com.cn/ @中国电子银行网"];
+			var rd = Math.floor(Math.random() * 10) % 3; 
+			$id('default_feed').innerHTML = txt[rd];
+		</script>
 		<div>
 			<div style="position: absolute; padding-top: 10px;">发布到：</div>
 			<div style="position: absolute; left: 135px;" id="wb_publisher" class="button1" ></div>
@@ -83,6 +69,185 @@ var $id = function(id) {return document.getElementById(id);}
 		</div>
 		<script type="text/javascript" src="/scripts/jquery.min.js"></script>
 		<script>
+		var testWbTopic = {
+			"statuses": [
+			{
+				"created_at": "Fri Feb 24 15:18:31 +0800 2012",
+				"id": 3416614810943471,
+				"mid": "3416614810943471",
+				"idstr": "3416614810943471",
+				"text": "与大家分享我所喜爱的照片！#ABC晒新年# 。",
+				"source": "微活动</a>",
+				"favorited": false,
+				"truncated": false,
+				"in_reply_to_status_id": "",
+				"in_reply_to_user_id": "",
+				"in_reply_to_screen_name": "",
+				"thumbnail_pic": "http://ww3.sinaimg.cn/thumbnail/5f0eb04atw1dq4ir5bztkj.jpg",
+				"bmiddle_pic": "http://ww3.sinaimg.cn/bmiddle/5f0eb04atw1dq4ir5bztkj.jpg",
+				"original_pic": "http://ww3.sinaimg.cn/large/5f0eb04atw1dq4ir5bztkj.jpg",
+				"geo": null,
+				"user": {
+					"id": 1594798154,
+					"idstr": "1594798154",
+					"screen_name": "刘麦",
+					"name": "刘麦",
+					"province": "34",
+					"city": "16",
+					"location": "安徽 亳州",
+					"description": "新一代世界小童星。",
+					"url": "http://blog.sina.com.cn/liumaiduo",
+					"profile_image_url": "http://tp3.sinaimg.cn/1594798154/50/5614782838/1",
+					"profile_url": "liumaiduo",
+					"domain": "liumaiduo",
+					"weihao": "",
+					"gender": "m",
+					"followers_count": 314,
+					"friends_count": 555,
+					"statuses_count": 1913,
+					"favourites_count": 1,
+					"created_at": "Sat Jun 11 00:00:00 +0800 2011",
+					"following": false,
+					"allow_all_act_msg": false,
+					"geo_enabled": true,
+					"verified": false,
+					"verified_type": -1,
+					"allow_all_comment": false,
+					"avatar_large": "http://tp3.sinaimg.cn/1594798154/180/5614782838/1",
+					"verified_reason": "",
+					"follow_me": false,
+					"online_status": 1,
+					"bi_followers_count": 290,
+					"lang": "zh-cn"
+				},
+				"annotations": [],
+				"reposts_count": 0,
+				"comments_count": 0,
+				"mlevel": 0,
+				"visible": {
+					"type": 0,
+					"list_id": 0
+				}
+			},
+			{
+				"created_at": "Fri Feb 24 15:18:31 +0800 2012",
+				"id": 3416614810943471,
+				"mid": "3416614810943471",
+				"idstr": "3416614810943471",
+				"text": "与大家分享我所喜爱的照片！#ABC晒新年# 。",
+				"source": "微活动</a>",
+				"favorited": false,
+				"truncated": false,
+				"in_reply_to_status_id": "",
+				"in_reply_to_user_id": "",
+				"in_reply_to_screen_name": "",
+				"thumbnail_pic": "http://ww3.sinaimg.cn/thumbnail/5f0eb04atw1dq4ir5bztkj.jpg",
+				"bmiddle_pic": "http://ww3.sinaimg.cn/bmiddle/5f0eb04atw1dq4ir5bztkj.jpg",
+				"original_pic": "http://ww3.sinaimg.cn/large/5f0eb04atw1dq4ir5bztkj.jpg",
+				"geo": null,
+				"user": {
+					"id": 1594798154,
+					"idstr": "1594798154",
+					"screen_name": "刘麦",
+					"name": "刘麦",
+					"province": "34",
+					"city": "16",
+					"location": "安徽 亳州",
+					"description": "新一代世界小童星。",
+					"url": "http://blog.sina.com.cn/liumaiduo",
+					"profile_image_url": "http://tp3.sinaimg.cn/1594798154/50/5614782838/1",
+					"profile_url": "liumaiduo",
+					"domain": "liumaiduo",
+					"weihao": "",
+					"gender": "m",
+					"followers_count": 314,
+					"friends_count": 555,
+					"statuses_count": 1913,
+					"favourites_count": 1,
+					"created_at": "Sat Jun 11 00:00:00 +0800 2011",
+					"following": false,
+					"allow_all_act_msg": false,
+					"geo_enabled": true,
+					"verified": false,
+					"verified_type": -1,
+					"allow_all_comment": false,
+					"avatar_large": "http://tp3.sinaimg.cn/1594798154/180/5614782838/1",
+					"verified_reason": "",
+					"follow_me": false,
+					"online_status": 1,
+					"bi_followers_count": 290,
+					"lang": "zh-cn"
+				},
+				"annotations": [],
+				"reposts_count": 0,
+				"comments_count": 0,
+				"mlevel": 0,
+				"visible": {
+					"type": 0,
+					"list_id": 0
+				}
+			},
+			{
+				"created_at": "Fri Feb 24 15:18:31 +0800 2012",
+				"id": 3416614810943471,
+				"mid": "3416614810943471",
+				"idstr": "3416614810943471",
+				"text": "与大家分享我所喜爱的照片！#ABC晒新年# 。",
+				"source": "微活动</a>",
+				"favorited": false,
+				"truncated": false,
+				"in_reply_to_status_id": "",
+				"in_reply_to_user_id": "",
+				"in_reply_to_screen_name": "",
+				"thumbnail_pic": "http://ww3.sinaimg.cn/thumbnail/5f0eb04atw1dq4ir5bztkj.jpg",
+				"bmiddle_pic": "http://ww3.sinaimg.cn/bmiddle/5f0eb04atw1dq4ir5bztkj.jpg",
+				"original_pic": "http://ww3.sinaimg.cn/large/5f0eb04atw1dq4ir5bztkj.jpg",
+				"geo": null,
+				"user": {
+					"id": 1594798154,
+					"idstr": "1594798154",
+					"screen_name": "刘麦",
+					"name": "刘麦",
+					"province": "34",
+					"city": "16",
+					"location": "安徽 亳州",
+					"description": "新一代世界小童星。",
+					"url": "http://blog.sina.com.cn/liumaiduo",
+					"profile_image_url": "http://tp3.sinaimg.cn/1594798154/50/5614782838/1",
+					"profile_url": "liumaiduo",
+					"domain": "liumaiduo",
+					"weihao": "",
+					"gender": "m",
+					"followers_count": 314,
+					"friends_count": 555,
+					"statuses_count": 1913,
+					"favourites_count": 1,
+					"created_at": "Sat Jun 11 00:00:00 +0800 2011",
+					"following": false,
+					"allow_all_act_msg": false,
+					"geo_enabled": true,
+					"verified": false,
+					"verified_type": -1,
+					"allow_all_comment": false,
+					"avatar_large": "http://tp3.sinaimg.cn/1594798154/180/5614782838/1",
+					"verified_reason": "",
+					"follow_me": false,
+					"online_status": 1,
+					"bi_followers_count": 290,
+					"lang": "zh-cn"
+				},
+				"annotations": [],
+				"reposts_count": 0,
+				"comments_count": 0,
+				"mlevel": 0,
+				"visible": {
+					"type": 0,
+					"list_id": 0
+				}
+			}
+				],
+			"total_number": 3
+		}
 		var defaultFeed = $id('default_feed').innerHTML;
 		var shareImg = "http://hbr2013.cebnet.com.cn/img/share.jpg";
 		var bindWbPub = function() {
@@ -163,17 +328,47 @@ var $id = function(id) {return document.getElementById(id);}
 			this.setAttribute('class', 't');
 			this.className = 't';
 		}
+		var weiboCount = 1;
+		function getWeibo(pn) {
+			$id('weibo_loading').style.display = "none";
 			WB2.anyWhere(function(w) {
 				w.parseCMD('/search/topics.json',function(sRes, bSt) {
+					sRes = testWbTopic;
+					var tpl = '<div class="weibo_show"><div class="face"><a href="http://weibo.com/u/$uid$"><img src="$face_pic$" alt="" /></a></div><div class="weibo_content"><a href="http://weibo.com/u/$uid$"><b>$user_name$</b></a>: $weibo_text$</div><div class="weibo_pic"><img src="$weibo_pic$"></div><div class="weibo_time">$weibo_time$</div><div class="clear"></div></div>';
+					var inHtml = '';
+					for(var i in sRes.statuses) {
+						var dObj = new Date(sRes.statuses[i].created_at);
+						var wbTxt = sRes.statuses[i].text.replace(/(#[^#]+#)/, function(s1) {return "<a href='http://huati.weibo.com/k/"+encodeURIComponent(s1.replace(/#/g, ''))+"' target=_blank>"+s1+"</a>";});
+						inHtml += tpl
+							.replace(/\$uid\$/g, sRes.statuses[i].user.id)
+							.replace('$face_pic$', sRes.statuses[i].user.profile_image_url)
+							.replace('$user_name$', sRes.statuses[i].user.screen_name)
+							.replace('$weibo_text$', wbTxt)
+							.replace('$weibo_pic$', sRes.statuses[i].thumbnail_pic)
+							.replace('$weibo_time$', (dObj.getMonth()+1)+"-"+dObj.getDate()+" "+dObj.getHours()+":"+dObj.getMinutes());
+					}
+					$id('s_wb_cont_scroll').innerHTML = $id('s_wb_cont_scroll').innerHTML.replace(/<div[^>]+weibo_more[^>]+>.+<\/div>/g, '');
+					if (pn * weiboCount < sRes.total_number) {
+				       		inHtml += '<div onclick="getWeiboMore('+sRes.total_number+', '+pn+');" id="weibo_more">查看更多</div>';
+					}
+					$id('s_wb_cont_scroll').innerHTML += inHtml;
 					}, {
 						source: '2290085142',
 						q: 'e%E6%BB%B4%E6%B0%B4v%E7%8E%AF%E4%BF%9D',
 						count: '10',
-						page: '1'
+						page: pn
 					}, {
 						method: 'get'
-					});
 				});
+			});
+		}
+		function getWeiboMore(total, pn) {
+			var count = 1
+			if((pn + 1) * count <= total) {
+				getWeibo(pn + 1);
+			} 
+		}
+		getWeibo(1);
 		</script>
             </div>
             <div class="clear"></div>
