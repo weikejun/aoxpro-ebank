@@ -54,7 +54,7 @@ var $createE = function(name) {return document.createElement(name);}
                 <textarea disabled=true id="default_feed" class="textarea" style=" ">
 		</textarea><br />
 		<script>
-			var txt = ["我参加了#e滴水v环保#有奖活动，了解到，每成功使用一次电子银行交易说明将节约大约2克的纸张，意味着保护了10滴天然水免受工业排放污染的危害，我是环保宣传队，我积极使用电子银行，点滴环保从我做起！@中国电子银行网", "我参加了#e滴水v环保#有奖活动，了解到，环保就在身边，使用电子银行交易，环保如此简单，既方便自己又能为环保治水做出贡献，我是环保宣传队，多多使用电子银行，体验环保生活方式！活动奖品多多，大奖可是iphone5S哟！每天都奖充值卡！ @中国电子银行网", "10.18电子银行环保日就要到了，参加#e滴水v环保#有奖活动，大奖iphone5S，奖品多多，每天有的拿，还等什么，猛戳→ → http://hbr2013.cebnet.com.cn/ @中国电子银行网"];
+			var txt = ["我参加了#e滴水v环保#有奖活动，了解到，每成功使用一次电子银行交易说明将节约大约2克的纸张，意味着保护了10滴天然水免受工业排放污染的危害，我是环保宣传队，我积极使用电子银行，点滴环保从我做起！@中国电子银行网 http://hbr2013.cebnet.com.cn/", "我参加了#e滴水v环保#有奖活动，了解到，环保就在身边，使用电子银行交易，环保如此简单，既方便自己又能为环保治水做出贡献，我是环保宣传队，多多使用电子银行，体验环保生活方式！活动奖品多多，大奖可是iphone5S哟！每天都奖充值卡！ @中国电子银行网 http://hbr2013.cebnet.com.cn/", "10.18电子银行环保日就要到了，参加@中国电子银行网#e滴水v环保#有奖活动，大奖iphone5S，奖品多多，每天有的拿，还等什么，猛戳→ → http://hbr2013.cebnet.com.cn/"];
 			var rd = Math.floor(Math.random() * 10) % 3; 
 			$id('default_feed').innerHTML = txt[rd];
 		</script>
@@ -248,7 +248,7 @@ var $createE = function(name) {return document.createElement(name);}
 				],
 			"total_number": 3
 		}
-		var defaultFeed = $id('default_feed').innerHTML;
+		var defaultFeed = $id('default_feed').innerHTML.replace('http://hbr2013.cebnet.com.cn/', '');
 		var shareImg = "http://hbr2013.cebnet.com.cn/img/share.jpg";
 		var bindWbPub = function() {
 			WB2.anyWhere(function(W){
