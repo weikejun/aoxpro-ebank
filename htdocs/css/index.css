@@ -37,7 +37,7 @@ img{border:0;}
 .main .center .block_2 .right_a:hover{right:-8px;}
 .main .center .block_2 .jp{width:335px;height:205px;display:inline-block;margin:125px 0 0 50px;}
 .main .center .block_2 .jp a{display:inline-block;margin:0 2px;}
-.main .center .block_3{float:left;width:298px;height:312px;background:url(../img/09.jpg) no-repeat;font-size:12px;padding:60px 10px 0 20px;line-height:180%;}
+.main .center .block_3{float:left;width:298px;height:312px;background:url(../img/09.jpg) no-repeat;font-size:12px;padding:60px 10px 0 20px;line-height:180%;cursor:pointer;}
 .main .center .block_3 .span_1{width:110px;display:inline-block;}
 .main .center .block_3 .span_2{display:inline-block;width:170px;}
 .main .center .block_3 .span_2 a{color:#f60;}

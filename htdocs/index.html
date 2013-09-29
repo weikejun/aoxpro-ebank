@@ -109,10 +109,16 @@
             <a href="javascript:void 0" class="right_a buttons next"></a>
 	    </div>
             </div>
-            
         	<div class="block_3">
-            <!--span class="span_1">2013年10月30号</span><span class="span_2">特等奖：<a href="#">@一页北京</a></span-->
-            <span>欢迎参与，敬请期待！</span>
+		<span>欢迎参与，敬请期待！</span>
+		<div id="rolling">
+            <!--span class="r_item"><span class="span_1">2013年10月30号</span><span class="span_2">特等奖：<a href="#">@一页北京1</a></span></span-->
+            <!--span class="r_item"><span class="span_1">2013年10月30号</span><span class="span_2">一等奖：<a href="#">@一页北京2</a></span></span-->
+            <!--span class="r_item"><span class="span_1">2013年10月30号</span><span class="span_2">二等奖：<a href="#">@一页北京3</a></span></span-->
+            <!--span class="r_item"><span class="span_1">2013年10月30号</span><span class="span_2">三等奖：<a href="#">@一页北京4</a></span></span-->
+            <!--span class="r_item"><span class="span_1">2013年10月30号</span><span class="span_2">四等奖：<a href="#">@一页北京5</a></span></span-->
+            <!--span class="r_item"><span class="span_1">2013年10月30号</span><span class="span_2">五等奖：<a href="#">@一页北京6</a></span></span-->
+	    	</div>
             <div class="txt">奖品领取：由工作人员联系获奖者，请获奖人员定期查看私信；</div>
             </div>
             <div class="clear"></div>
@@ -188,6 +194,31 @@
 			$('#banner_2').toggle();
 			}, 7000);
 	$('#slider-code').tinycarousel({interval: true, controls: true});
+	function listInit() {
+	$('#rolling span.r_item').each(function(idx, elem) {
+		if (idx >= 5) {
+		$(elem).hide();
+		} else {
+		$(elem).show();
+		}
+		});
+	}
+	listInit();
+	var rolling = function() {
+	var first = $('#rolling span.r_item:first');
+	$('#rolling span.r_item:first').remove();
+	$('#rolling').append(first);
+	listInit();
+	}
+	if($('#rolling span.r_item').size() > 5) {
+	var timer = setInterval(rolling, 500);
+	$('#rolling').hover(
+			function() {
+			clearInterval(timer);
+			}, function() {
+			timer = setInterval(rolling, 500);
+			});
+	}
 	});
     </script>
 </body>
