@@ -37,6 +37,19 @@ CREATE TABLE `qualified_user` (
   KEY `date_time_idx` (`date_time`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='抽奖资格表'; 
 
+CREATE TABLE `user_feeds` (
+  `id` bigint NOT NULL AUTO_INCREMENT COMMENT '流水ID',
+  `weibo_id` varchar(64) NOT NULL COMMENT '微博用户ID, s_%s 新浪; t_%s 腾讯',
+  `weibo_name` varchar(64) NOT NULL DEFAULT '微博用户' COMMENT '微博用户名',
+  `weibo_face` varchar(64) NOT NULL DEFAULT '微博用户' COMMENT '微博用户名',
+  `feeds_pic` varchar(64) NOT NULL DEFAULT '' COMMENT '微博配图',
+  `feeds_detail` varchar(1024) NOT NULL DEFAULT '1' COMMENT '微博内容', 
+  `platform` varchar(16) NOT NULL COMMENT '微博平台, tencent 腾讯; sina 腾讯',
+  `create_time` bigint NOT NULL DEFAULT '0' COMMENT '用户参与游戏日期',
+  PRIMARY KEY (`id`),
+  KEY `create_time_idx` (`create_time`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='用户微博表'; 
+
 CREATE TABLE `action_log` (
   `id` bigint NOT NULL AUTO_INCREMENT COMMENT '流水ID',
   `weibo_id` bigint NOT NULL DEFAULT '0' COMMENT '用户ID',

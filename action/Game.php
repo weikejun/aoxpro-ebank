@@ -135,16 +135,29 @@ class My_Action_Game extends My_Action_Abstract {
 		$session = $this->getSession();
 		$content = urldecode($this->getRequest('content'));
 		if (empty($content)) {
-			$content = ConfigLoader::getInstance()->get('share', 'content');
+			$content = ConfigLoader::getInstance()->get('share', 'content') . ' http://' . $this->getServer('HTTP_HOST');
 		}
-		$content .= ' http://' . $this->getServer('HTTP_HOST');
-		$picUrl = ConfigLoader::getInstance()->get('share', 'pic_url');
+		$picUrl = urldecode($this->getRequest('pic_url'));
+		if (empty($picUrl)) {
+			$picUrl = ConfigLoader::getInstance()->get('share', 'pic_url');
+		}
 		$follow = $this->getRequest('follow');
 		if ($session['platform'] == 'sina') {
-			$this->_weiboService->upload($content, $picUrl);
-			if ($follow) {
-				$this->_weiboService->follow_by_name('中国电子银行网');
+			$ret = $this->_weiboService->upload($content, $picUrl);
+			if($ret) {
+				My_Model_UserFeeds::insert(
+						$this->_weiboUser['id'],
+						$this->_weiboUser['name'],
+						$this->_weiboUser['head'],
+						$ret['text'],
+						$ret['thumbnail_pic'],
+						$session['platform']
+						);
+				if ($follow) {
+					$this->_weiboService->follow_by_name('中国电子银行网');
+				}
 			}
+			
 		} else {
 			$ret = Tencent::api('t/upload_pic', array(
 						'format' => 'json',
@@ -161,11 +174,27 @@ class My_Action_Game extends My_Action_Abstract {
 						'clientip' => My_Service_Game::getIP(),
 						'pic_url' => ($ret['errcode'] == 0 ? $ret['data']['imgurl'] : $picUrl),
 					), 'post');
-			if ($follow) {
-				$ret = Tencent::api('friends/add', array(
+			$ret = json_decode($ret, true);
+			if ($ret['errcode'] == 0) {
+				/*$ret = Tencent::api('t/show', array(
 							'format' => 'json',
-							'name' => urlencode('cfca1977964945')
-							), 'post');
+							'id' => $ret['data']['id']
+							)
+						);*/
+				My_Model_UserFeeds::insert(
+						"t_" . $this->_weiboUser['passport'],
+						$this->_weiboUser['name'],
+						empty($this->_weiboUser['head']) ? 'http://mat1.gtimg.com/www/mb/img/p1/head_normal_50.png' : $this->_weiboUser['head'],
+						$content,
+						strpos($picUrl, 'qpic.cn') !== false ? "$picUrl/120" : $picUrl,
+						$session['platform']
+						);
+				if ($follow) {
+					$ret = Tencent::api('friends/add', array(
+								'format' => 'json',
+								'name' => urlencode('cfca1977964945')
+								), 'post');
+				}
 			}
 		}
 		if($this->getRequest('bingo') == '888') {
@@ -316,6 +345,28 @@ class My_Action_Game extends My_Action_Abstract {
 				);
 	}
 
+	public function topicAction() {
+		$count = intval($this->getRequest('count'));
+		$page = intval($this->getRequest('page'));
+		$platform = $this->getRequest('platform');
+
+		$offset = ($page - 1) * $count;
+		$limit = $count;
+		
+		$res = My_Model_UserFeeds::get($platform, $offset, $limit);
+		$total = My_Model_UserFeeds::total($platform);
+
+		$this->setViewParams('data', 
+				array(
+					'count' => $count,
+					'page' => $page,
+					'total_number' => $total[0]['total'],
+					'statuses' => $res,
+				     )
+				);
+		
+	}
+
 	protected function _postAction() {
 		$sParams = $this->getSession('oauth2');
 		$actionBody = sprintf(
@@ -346,8 +397,12 @@ class My_Action_Game extends My_Action_Abstract {
 	private function _verifyAuth() {
 		$session = $this->getSession();
 		$host = $this->getServer('HTTP_HOST');
-		$ru = "http://$host" . $this->getServer('REQUEST_URI');
-		if (!isset($session['platform'])) {
+		$ru = urldecode($this->getRequest('ru'));
+		if (empty($ru)) {
+			$ru = "http://$host" . $this->getServer('REQUEST_URI');
+		}
+		if (!isset($session['platform']) 
+				|| ($this->getRequest('platform') && $session['platform'] != $this->getRequest('platform'))) {
 			$session['ru'] = $ru;
 			$this->setSession($session);
 			$this->redirect("http://$host/index.php?action=auth");
@@ -369,7 +424,8 @@ class My_Action_Game extends My_Action_Abstract {
 			$this->_weiboUser = array(
 					'id' => 's_' . $weiboUser['id'],
 					'name' => $weiboUser['screen_name'],
-					'passport' => $weiboUser['name']
+					'passport' => $weiboUser['name'],
+					'head' => $weiboUser['profile_image_url']
 					);
 		} else {
 			OAuth::init(TX_AKEY, TX_SKEY);
@@ -382,7 +438,8 @@ class My_Action_Game extends My_Action_Abstract {
 			$this->_weiboUser = array(
 					'id' => 't_' . $weiboUser['data']['openid'],
 					'name' => $weiboUser['data']['nick'],
-					'passport' => $weiboUser['data']['name']
+					'passport' => $weiboUser['data']['name'],
+					'head' => $weiboUser['data']['head']
 					);
 		}
 

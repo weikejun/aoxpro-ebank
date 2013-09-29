@@ -20,10 +20,11 @@
 	</div>
     </div>
     
+    <a name="login" />
     <div class="content">
     	<a name="play"></a>
     	<div class="sq">
-        	<h5>请选择微博帐号授权参与游戏获得抽奖资格</h5>
+        	<h5>请选择微博帐号进行授权</h5>
             <a href="/index.php?action=connect&platform=sina" title="新浪微博" class="a1"></a>
             <a href="/index.php?action=connect&platform=tencent" title="腾讯微博" class="a2"></a>
         </div>

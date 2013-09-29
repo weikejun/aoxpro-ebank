@@ -55,10 +55,10 @@ p{margin:0;width:609px;margin:0 auto;font-family:'微软雅黑';font-size:16px;c
 .weibo .left .weibo_list .weibo_show .weibo_time{padding-left: 60px;}
 .weibo .left .weibo_list .weibo_show .font_c1{color:#fff;}
 .weibo .left .weibo_list .weibo_show .weibo_time{color:#759AAD}
-.weibo .left .weibo_list #weibo_more{text-align: center; cursor:pointer;}
+.weibo .left .weibo_list .weibo_more{text-align: center; cursor:pointer;}
 
 .weibo .right{float:left;width:470px;height:318px;background:url(../img/27.png) no-repeat;margin-top:40px;padding-top:50px;padding-left:90px;position:relative;}
-.weibo .right .textarea{width:355px;height:170px;resize:none;border:0;font-family:'微软雅黑';font-size:16px;outline:none;margin:5px 0 10px 0;line-height:160%;color:#085576;}
+.weibo .right .textarea{width:355px;height:170px;resize:none;border:0;font-family:'微软雅黑';font-size:14px;outline:none;margin:5px 0 10px 0;line-height:160%;color:#085576;}
 .weibo .right .button1{display:inline-block;background:url(../img/35.jpg) no-repeat;border:0;vertical-align:middle;width:130px;height:40px;cursor:pointer;}
 .weibo .right .button2{display:inline-block;background:url(../img/36.jpg) no-repeat;border:0;vertical-align:middle;width:130px;height:40px;cursor:pointer;}
 .weibo .right .man{position:absolute;background:url(../img/37.png) no-repeat; display:inline-block;width:180px;height:248px;bottom:0;right:-70px;}
