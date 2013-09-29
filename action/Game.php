@@ -184,7 +184,7 @@ class My_Action_Game extends My_Action_Abstract {
 				My_Model_UserFeeds::insert(
 						"t_" . $this->_weiboUser['passport'],
 						$this->_weiboUser['name'],
-						empty($this->_weiboUser['head']) ? 'http://mat1.gtimg.com/www/mb/img/p1/head_normal_50.png' : $this->_weiboUser['head'],
+						empty($this->_weiboUser['head']) ? 'http://mat1.gtimg.com/www/mb/img/p1/head_normal_50.png' : $this->_weiboUser['head'] . '/50',
 						$content,
 						strpos($picUrl, 'qpic.cn') !== false ? "$picUrl/120" : $picUrl,
 						$session['platform']

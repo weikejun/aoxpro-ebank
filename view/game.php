@@ -17,7 +17,7 @@ function authLoad() {
 <body>
 
 	<div class="top_nav">
-    	<div class="center"><a href="#"><img src="img/01.jpg" alt="" /></a></div>
+        <?php include WWW_ROOT . "/inc/logo_bar.dwt" ?>	
 	</div>
 
 	<div class="main1">
